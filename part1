@@ -1,8 +1,7 @@
-from constraint import *
-
+#from constraint import *
 
 class Student:
-  def __init__(id,year,trouble,mobility,sibling) -> None:
+  def __init__(self,id,year,trouble,mobility,sibling) -> None:
     self.id = id
     self.year = year
     self.trouble = trouble
@@ -10,17 +9,37 @@ class Student:
     self.sibling = sibling
     self.values = []
     
-  def genVariable():
-    if self.mobility == "R":
-      self.values.extend([1,2,3,4,13,14,15,16,17,18,19,20])
+  def genVariable(self):
 
+    if self.mobility == "R":
+      self.values=["1","2","3","4","13","14","15","16","17","18","19","20"]
+    else:
+      for i in range(1,32):
+        self.values.append(str(i))
+
+  def st_print(self):
+    print("id: ", self.id)
+    print("year: ", self.year)
+    print("tr: ", self.trouble)
+    print("mob: ", self.mobility)
+    print("sib: ", self.sibling)
+
+def readFile(input_file):
+  f = open(input_file)
+  vector = []
+
+  while f:
+    line = f.readline()
+    data = line.split(',')
+    print(data)
+    my_student = Student(data[0],data[1],data[2],data[3],data[4])
+    my_student.st_print()
+    vector.append(my_student)
+    
+  f.close()
 
 def main():
-  #Read the file
-  f = open("students1.txt", "r")
-
+  readFile("students1.txt")
 
 if __name__ == "__main__":
   main()
-
-
