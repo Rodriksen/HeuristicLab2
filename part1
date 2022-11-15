@@ -1,6 +1,26 @@
 from constraint import *
 
+
+class Student:
+  def __init__(id,year,trouble,mobility,sibling) -> None:
+    self.id = id
+    self.year = year
+    self.trouble = trouble
+    self.mobility = mobility
+    self.sibling = sibling
+    self.values = []
+    
+  def genVariable():
+    if self.mobility == "R":
+      self.values.extend([1,2,3,4,13,14,15,16,17,18,19,20])
+
+
 def main():
+  #Read the file
+  f = open("students1.txt", "r")
+
 
 if __name__ == "__main__":
   main()
+
+
