@@ -25,7 +25,7 @@ class Student:
                     self.values.append(i)
 
     def setSibling(self, std_vector):  # We only execute it if the student has a sibling
-        bro = std_vector[self.sibling()]
+        bro = std_vector[self.sibling]
         if self.year > bro.year:
             self.values = [2, 3, 6, 7, 10, 11, 14, 15]
             bro.values = [1, 4, 5, 8, 9, 12, 13, 16]
@@ -49,6 +49,12 @@ class Student:
         print("mob: ", self.mobility)
         print("sib: ", self.sibling)
 
+def setDomain(student_vector):
+    for student in student_vector:
+        if student.sibling == 0:
+            student.setNoSibling()
+        else:
+            student.setSibling(student_vector)
 
 def readFile(input_file):
     f = open(input_file)
@@ -63,10 +69,12 @@ def readFile(input_file):
         vector.append(my_student)
 
     f.close()
+    return vector
 
 
 def main(inpath):
-    readFile(inpath)
+    student_vector = readFile(inpath)
+    setDomain(student_vector)
 
 
 if __name__ == "__main__":
