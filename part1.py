@@ -10,7 +10,7 @@ class Student:
         self.sibling = sibling
         self.values = []
 
-    def genVariable(self):
+    def setNoSibling(self):
         if self.year == 1:
             if self.mobility == "R":
                 self.values = [1, 2, 3, 4, 13, 14, 15, 16]
@@ -21,17 +21,26 @@ class Student:
             if self.mobility == "R":
                 self.values = [17, 18, 19, 20]
             else:
-                if self.sibling == 0:
-                    for i in range(17, 32):
-                        self.values.append(i)
-                else:
-                    for i in range(1, 32):
-                        self.values.append(i)
+                for i in range(17, 32):
+                    self.values.append(i)
 
+    def setSibling(self, std_vector):  # We only execute it if the student has a sibling
+        bro = std_vector[self.sibling()]
+        if self.year > bro.year:
+            self.values = [2, 3, 6, 7, 10, 11, 14, 15]
+            bro.values = [1, 4, 5, 8, 9, 12, 13, 16]
+            if self.mobility == "R":
+                self.values = [2, 3, 14, 15]
+            if bro.mobility == "R":
+                bro.values = [1, 4, 13, 16]
+        elif bro.year > self.year:
+            bro.values = [2, 3, 6, 7, 10, 11, 14, 15]
+            self.values = [1, 4, 5, 8, 9, 12, 13, 16]
+            if bro.mobility == "R":
+                bro.values = [2, 3, 14, 15]
+            elif self.mobility == "R":
+                self.values = [1, 4, 13, 16]
 
-
-    def checkSibling(self):
-        ...
 
     def st_print(self):
         print("id: ", self.id)
