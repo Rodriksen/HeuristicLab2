@@ -81,13 +81,16 @@ def main(inpath):
 
     problem = Problem()
     # Add variables of the problem with corresponding domain
+    # Vectors of reduced and troublesome students to have simpler constraints
+    reduced = []
+    troublesome = []
     for st in student_vector:
         problem.addVariables(st.id, st.values)
+        if st.mobility == "R":
+            reduced.append(st)
+        if st.trouble == "C":
+            troublesome.append(st)
 
-
-    """
-    vectors of reduced and troublesome students to have simpler constraints
-    """
     # Add constraints
 
 if __name__ == "__main__":
