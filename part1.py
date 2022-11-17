@@ -84,6 +84,10 @@ def main(inpath):
     for st in student_vector:
         problem.addVariables(st.id, st.values)
 
+
+    """
+    vectors of reduced and troublesome students to have simpler constraints
+    """
     # Add constraints
 
 if __name__ == "__main__":
