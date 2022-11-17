@@ -13,10 +13,24 @@ class Student:
     def genVariable(self):
 
         if self.mobility == "R":
-            self.values = ["1", "2", "3", "4", "13", "14", "15", "16", "17", "18", "19", "20"]
+            if self.year == 1:
+                self.values = [1, 2, 3, 4, 13, 14, 15, 16]
+            else:
+                self.values = [17, 18, 19, 20]
+
         else:
-            for i in range(1, 32):
-                self.values.append(str(i))
+            if self.year == 1:
+                for i in range(1, 16):
+                    self.values.append(i)
+            else:
+                if self.sibling == 0:
+                    for i in range(17, 32):
+                        self.values.append(i)
+                else:
+                    for i in range(1, 32):
+                        self.values.append(i)
+
+    def checkSibling(self):
 
     def st_print(self):
         print("id: ", self.id)
@@ -35,7 +49,7 @@ def readFile(input_file):
     # Save data from text file into the class and the vector
     for item in list_data:
         data = item.split(',')
-        my_student = Student(data[0], data[1], data[2], data[3], data[4])
+        my_student = Student(int(data[0]), int(data[1]), data[2], data[3], int(data[4]))
         vector.append(my_student)
 
     f.close()
