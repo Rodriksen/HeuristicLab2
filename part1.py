@@ -11,17 +11,15 @@ class Student:
         self.values = []
 
     def genVariable(self):
-
-        if self.mobility == "R":
-            if self.year == 1:
+        if self.year == 1:
+            if self.mobility == "R":
                 self.values = [1, 2, 3, 4, 13, 14, 15, 16]
             else:
-                self.values = [17, 18, 19, 20]
-
-        else:
-            if self.year == 1:
                 for i in range(1, 16):
                     self.values.append(i)
+        else:
+            if self.mobility == "R":
+                self.values = [17, 18, 19, 20]
             else:
                 if self.sibling == 0:
                     for i in range(17, 32):
@@ -30,7 +28,10 @@ class Student:
                     for i in range(1, 32):
                         self.values.append(i)
 
+
+
     def checkSibling(self):
+        ...
 
     def st_print(self):
         print("id: ", self.id)
