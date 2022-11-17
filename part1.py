@@ -1,4 +1,4 @@
-#from constraint import *
+from constraint import *
 import sys
 
 class Student:
@@ -74,11 +74,17 @@ def readFile(input_file):
 
 
 def main(inpath):
+    # Vector of students
     student_vector = readFile(inpath)
+    # Students domain
     setDomain(student_vector)
-    for i in student_vector:
-        i.st_print()
 
+    problem = Problem()
+    # Add variables of the problem with corresponding domain
+    for st in student_vector:
+        problem.addVariables(st.id, st.values)
+
+    # Add constraints
 
 if __name__ == "__main__":
     main(sys.argv[1])
