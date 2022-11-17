@@ -1,6 +1,7 @@
 from constraint import *
 import sys
 
+
 class Student:
     def __init__(self, id, year, trouble, mobility, sibling) -> None:
         self.id = id
@@ -25,7 +26,7 @@ class Student:
                     self.values.append(i)
 
     def setSibling(self, std_vector):  # We only execute it if the student has a sibling
-        bro = std_vector[(self.sibling)-1]
+        bro = std_vector[(self.sibling) - 1]
         if self.year > bro.year:
             self.values = [2, 3, 6, 7, 10, 11, 14, 15]
             bro.values = [1, 4, 5, 8, 9, 12, 13, 16]
@@ -41,7 +42,6 @@ class Student:
             elif self.mobility == "R":
                 self.values = [1, 4, 13, 16]
 
-
     def st_print(self):
         print("id: ", self.id)
         print("year: ", self.year)
@@ -50,12 +50,14 @@ class Student:
         print("sib: ", self.sibling)
         print("values: ", self.values)
 
+
 def setDomain(student_vector):
     for student in student_vector:
         if student.sibling == 0:
             student.setNoSibling()
         else:
             student.setSibling(student_vector)
+
 
 def readFile(input_file):
     f = open(input_file)
@@ -71,6 +73,12 @@ def readFile(input_file):
 
     f.close()
     return vector
+
+# Constraint to leave seat next to a R.M. empty
+def movSeat(seat1, seat2):
+    # Consider seat1 is the corresponding to R.M
+    # return true or false
+    ...
 
 
 def main(inpath):
@@ -92,6 +100,14 @@ def main(inpath):
             troublesome.append(st)
 
     # Add constraints
+    # One seat per student
+    problem.addConstraint(AllDifferentConstraint())
+
+    # Seat next to reduced student empty
+    for red in reduced:
+        for st in student_vector:
+            problem.addConstraint(movSeat, (red, st))
+
 
 if __name__ == "__main__":
     main(sys.argv[1])
