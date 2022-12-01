@@ -74,10 +74,26 @@ def readFile(input_file):
     f.close()
     return vector
 
+
 # Constraint to leave seat next to a R.M. empty
 def movSeat(seat1, seat2):
     # Consider seat1 is the corresponding to R.M
-    # return true or false
+    if seat1 in (1,3,13,15,17,19):
+        empty_seat = seat1+1
+    else:
+        empty_seat = seat1-1
+
+    return seat2 != empty_seat
+
+def occupyMob(stud): #Hay que terminarla
+    if stud in (1,3,13,15,17,19):
+        empty_seat = seat+1
+    else:
+        empty_seat = seat-1
+
+
+
+def trouble(seat1,seat2):
     ...
 
 
@@ -89,6 +105,7 @@ def main(inpath):
 
     problem = Problem()
     # Add variables of the problem with corresponding domain
+
     # Vectors of reduced and troublesome students to have simpler constraints
     reduced = []
     troublesome = []
