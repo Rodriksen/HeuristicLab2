@@ -85,7 +85,9 @@ def movSeat(seat1, seat2):
 
     return seat2 != empty_seat
 
-def occupyMob(stud): #Hay que terminarla
+def occupyMob(seat): #Hay que terminarla
+    # ver si seat reduced está ocupado
+
     if stud in (1,3,13,15,17,19):
         empty_seat = seat+1
     else:
@@ -124,6 +126,10 @@ def main(inpath):
     for red in reduced:
         for st in student_vector:
             problem.addConstraint(movSeat, (red, st))
+
+    # Few reduced -> assign reduced seats to students
+    if reduced.size() < 6:
+        problem.addConstraint(occupyMob, std)
 
 
 if __name__ == "__main__":
