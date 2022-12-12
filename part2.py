@@ -1,5 +1,6 @@
 import sys
 
+
 class Student:
     def __init__(self, label, seat):
         self.label = label
@@ -12,6 +13,7 @@ class Student:
         print("seat: ", self.seat)
         print("tr: ", self.trouble)
         print("mob: ", self.reduced)
+
 
 def readFile(input_file):
     f = open(input_file)
@@ -28,25 +30,29 @@ def readFile(input_file):
     f.close()
     return vector
 
+
 def main(inpath, heuristic):
     # Read file
-    std_vect = readFile(inpath)
-
-    # Set of states
-
-    # Set of nodes
-
-    # Set of operatos
+    std_vec = readFile(inpath)
 
     # Initial state
+    init = [std_vec, []]
 
-    # Goal/ goals state
+    # Final state
+    fin = [[], std_vec]
+
+    to_expand = []
+    to_expand.append(init[0])
+    visited = []
+    while len(init[0]):
+        ...
+
+    # f(n) = g(n) + h(n)
 
     if heuristic == "1":
         ...
     elif heuristic == "2":
         ...
-
 
 
 if __name__ == "__main__":
