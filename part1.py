@@ -143,6 +143,12 @@ def main(inpath):
         for red in reduced:
             problem.addConstraint(trouble, (tr, red))
 
+    solutions = problem.getSolutions()
+    num_sol = len(solutions)
+    for i in range(0, (num_sol//2)):
+        print(solutions[i])
+        print(" ")
+
 
 if __name__ == "__main__":
     main(sys.argv[1])
