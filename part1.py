@@ -12,6 +12,7 @@ class Student:
         self.values = []
         self.label = str(id) + trouble + mobility
 
+    # Function to set the domain of students without siblings
     def setNoSibling(self):
         if self.year == 1:
             if self.mobility == "R":
@@ -26,7 +27,8 @@ class Student:
                 for i in range(17, 33):
                     self.values.append(i)
 
-    def setSibling(self, std_vector):  # We only execute it if the student has a sibling
+    # Function to set domain of students with siblings
+    def setSibling(self, std_vector):
         bro = std_vector[(self.sibling) - 1]
         if self.year > bro.year:
             self.values = [2, 3, 6, 7, 10, 11, 14, 15]
@@ -86,9 +88,7 @@ def movSeat(seat1, seat2):
 
     return seat2 != empty_seat
 
-
-
-
+# Constraint to avoid sitting R.M students close to troublesome
 def trouble(seat1,seat2):
     # Seat1 -> sitio del troublesome
     # Seat2 -> no sea sitio de troublesome or reduced
@@ -103,6 +103,8 @@ def trouble(seat1,seat2):
         if seat2 == seat:
             return False
     return True
+
+# Constraint to sit siblings together
 
 
 def main(inpath):
@@ -120,29 +122,38 @@ def main(inpath):
     for st in student_vector:
         problem.addVariable(st.label, st.values)
         if st.mobility == "R":
-            reduced.append(st.label)
+            reduced.append(st)
         if st.trouble == "C":
-            troublesome.append(st.label)
+            troublesome.append(st)
 
     # Add constraints
-    # One seat per student
+    # One student per seat
     problem.addConstraint(AllDifferentConstraint())
 
     # Seat next to reduced student empty
     for red in reduced:
         for st in student_vector:
-            problem.addConstraint(movSeat, (red, st))
+            problem.addConstraint(movSeat, (red.label, st.label))
 
     # Troublesome cannot be sit together or near RM
     for tr in troublesome:
         for tr2 in troublesome:
-            problem.addConstraint(trouble, (tr, tr2))
+            # If tr and tr2 are siblings this cannot happen
+            if tr.id != tr2.sibling:
+                problem.addConstraint(trouble, (tr.label, tr2.label))
         for red in reduced:
-            problem.addConstraint(trouble, (tr, red))
+            problem.addConstraint(trouble, (tr.label, red.label))
+
+    # Siblings together
+    for st1 in student_vector:
+        for st2 in student_vector:
+            if st1.id == st2.sibling:
+                ...
+
 
     solutions = problem.getSolutions()
     num_sol = len(solutions)
-    for i in range(0, (num_sol//2)):
+    for i in range(0, 5):
         print(solutions[i])
         print(" ")
 
