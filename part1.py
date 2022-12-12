@@ -1,4 +1,4 @@
-# from constraint import *
+from constraint import *
 import sys
 
 
@@ -10,6 +10,10 @@ class Student:
         self.mobility = mobility
         self.sibling = sibling
         self.values = []
+        self.label = id + trouble + mobility
+
+    # def create_label(self):
+        # self.label = self.id + self.trouble + self.mobility
 
     def setNoSibling(self):
         if self.year == 1:
@@ -117,7 +121,7 @@ def main(inpath):
     reduced = []
     troublesome = []
     for st in student_vector:
-        problem.addVariables(st.id, st.values)
+        problem.addVariables(st.label, st.values)
         if st.mobility == "R":
             reduced.append(st)
         if st.trouble == "C":
