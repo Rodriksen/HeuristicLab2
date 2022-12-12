@@ -10,10 +10,7 @@ class Student:
         self.mobility = mobility
         self.sibling = sibling
         self.values = []
-        self.label = id + trouble + mobility
-
-    # def create_label(self):
-        # self.label = self.id + self.trouble + self.mobility
+        self.label = str(id) + trouble + mobility
 
     def setNoSibling(self):
         if self.year == 1:
@@ -121,11 +118,11 @@ def main(inpath):
     reduced = []
     troublesome = []
     for st in student_vector:
-        problem.addVariables(st.label, st.values)
+        problem.addVariable(st.label, st.values)
         if st.mobility == "R":
-            reduced.append(st)
+            reduced.append(st.label)
         if st.trouble == "C":
-            troublesome.append(st)
+            troublesome.append(st.label)
 
     # Add constraints
     # One seat per student
