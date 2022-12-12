@@ -1,4 +1,4 @@
-from constraint import *
+# from constraint import *
 import sys
 
 
@@ -78,25 +78,30 @@ def readFile(input_file):
 # Constraint to leave seat next to a R.M. empty
 def movSeat(seat1, seat2):
     # Consider seat1 is the corresponding to R.M
-    if seat1 in (1,3,13,15,17,19):
+    if seat1 in (1, 3, 13, 15, 17, 19):
         empty_seat = seat1+1
     else:
         empty_seat = seat1-1
 
     return seat2 != empty_seat
 
-def occupyMob(seat): #Hay que terminarla
-    # ver si seat reduced está ocupado
-
-    if stud in (1,3,13,15,17,19):
-        empty_seat = seat+1
-    else:
-        empty_seat = seat-1
 
 
 
 def trouble(seat1,seat2):
-    ...
+    # Seat1 -> sitio del troublesome
+    # Seat2 -> no sea sitio de troublesome or reduced
+    if seat1 in (1, 5, 9, 13, 17, 21, 25, 29):
+        empty_seat = [seat1-4, seat1-3, seat1+1, seat1+4, seat1+5]
+    elif seat1 in (4, 8, 12, 16, 20, 24, 28, 32):
+        empty_seat = [seat1-5, seat1-4, seat1-1, seat1+3, seat1+4]
+    else:
+        empty_seat = [seat1-5, seat1-4, seat1-3, seat1-1, seat1+1, seat1+3, seat1+4, seat1+5]
+
+    for seat in empty_seat:
+        if seat2 == seat:
+            return False
+    return True
 
 
 def main(inpath):
@@ -127,9 +132,12 @@ def main(inpath):
         for st in student_vector:
             problem.addConstraint(movSeat, (red, st))
 
-    # Few reduced -> assign reduced seats to students
-    if reduced.size() < 6:
-        problem.addConstraint(occupyMob, std)
+    # Troublesome cannot be sit together or near RM
+    for tr in troublesome:
+        for tr2 in troublesome:
+            problem.addConstraint(trouble, (tr, tr2))
+        for red in reduced:
+            problem.addConstraint(trouble, (tr, red))
 
 
 if __name__ == "__main__":
