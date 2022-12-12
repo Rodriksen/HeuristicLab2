@@ -35,17 +35,22 @@ def main(inpath, heuristic):
     # Read file
     std_vec = readFile(inpath)
 
+    # Algo tiene que estar mal
     # Initial state
     init = [std_vec, []]
 
     # Final state
     fin = [[], std_vec]
 
-    to_expand = []
-    to_expand.append(init[0])
-    visited = []
-    while len(init[0]):
-        ...
+    state = init
+    open_list = []
+    open_list.append(state)
+    closed_list = []
+    # len(state[0]) == 0 => final state, we reach a solution
+    while len(state[0]) and len(open_list):
+        closed_list.append(state)
+        open_list.remove(state)
+
 
     # f(n) = g(n) + h(n)
 
