@@ -16,8 +16,6 @@ class Student:
         print("tr: ", self.trouble)
         print("mob: ", self.reduced)
 
-
-
 class State:
     def __init__(self, bus, outside, heuristic, g=0, h=0):
         self.bus = bus
@@ -45,7 +43,10 @@ class State:
         new.bus.append(disabled.flag)
         new.bus.append(student.flag)
         new.outside.pop(self.outside.index(disabled))
-        new.outside.pop(self.outside.index(student))
+        if (self.outside.index(disabled)) > self.outside.index(student):
+            new.outside.pop(self.outside.index(student))
+        else:
+            new.outside.pop((self.outside.index(student))-1)
         new.g += 3
         new.findH()
         print("buses after operation")
@@ -66,11 +67,13 @@ class State:
             count = 0
             for st in new.outside:
                 if st.seat > student.seat:
+                    print(str(st.seat) + ">" + str(student.seat))
                     if st.reduced == "R":
                         count += 3
                     elif st.reduced == "X":
                         count += 1
-            new.g += 2*count
+            new.g += count + 1
+            print(new.g)
         new.findH()
         print("after operation")
         print(self.bus)
@@ -143,6 +146,7 @@ def main(inpath, heuristic):
             final_expanded = expanded_counter
             final_time = end_time - start_time
             solution = current_state.bus
+            print("The solution is: " + str(solution))
             return solution
         # If not final, expand node
         expanded_counter += 1
