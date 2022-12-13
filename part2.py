@@ -1,6 +1,6 @@
 import sys
+import copy
 from time import time
-
 
 class Student:
     def __init__(self, label, seat):
@@ -15,6 +15,7 @@ class Student:
         print("seat: ", self.seat)
         print("tr: ", self.trouble)
         print("mob: ", self.reduced)
+
 
 
 class State:
@@ -38,38 +39,42 @@ class State:
             self.h = 0
 
     def moveDisabled(self, disabled, student):
-        new_bus = self.bus
-        new_bus.append(disabled.flag)
-        new_bus.append(student.flag)
-        new_out = self.outside
-        new_out.remove(disabled)
-        new_out.remove(student)
-        heuristic = self.heuristic
-        new_g = 3 + self.g
-        new = State(new_bus, new_out, heuristic, new_g, 0)
+        new = copy.deepcopy(self)
+        print("buses before operation")
+        print(self.bus)
+        new.bus.append(disabled.flag)
+        new.bus.append(student.flag)
+        new.outside.pop(self.outside.index(disabled))
+        new.outside.pop(self.outside.index(student))
+        new.g += 3
         new.findH()
+        print("buses after operation")
+        print(self.bus)
+        print(new.bus)
 
         return new
 
     def moveNormal(self, student):
-        new_bus = self.bus
-        new_bus.append(student.flag)
-        new_out = self.outside
-        new_out.remove(student)
-        heuristic = self.heuristic
+        new = copy.deepcopy(self)
+        print("bus before operation")
+        print(self.bus)
+        new.bus.append(student.flag)
+        new.outside.pop(self.outside.index(student))
         if student.trouble == "X":
-            new_g = 1 + self.g
+            new.g += 1
         else:
             count = 0
-            for st in new_out:
+            for st in new.outside:
                 if st.seat > student.seat:
                     if st.reduced == "R":
                         count += 3
                     elif st.reduced == "X":
                         count += 1
-            new_g = 2*count
-        new = State(new_bus, new_out, heuristic, new_g, 0)
+            new.g += 2*count
         new.findH()
+        print("after operation")
+        print(self.bus)
+        print(new.bus)
 
         return new
 
@@ -77,6 +82,7 @@ class State:
         if self.bus == other_state.bus:
             return True
         return False
+
 
 
 def readFile(input_file):
@@ -138,14 +144,18 @@ def main(inpath, heuristic):
             final_time = end_time - start_time
             solution = current_state.bus
             return solution
-
         # If not final, expand node
         expanded_counter += 1
+        print("Bus for iter " + str(expanded_counter))
+        print(current_state.bus)
         children = []
         for student in current_state.outside:
+            print("student being moved")
+            print(student.flag)
             if student.reduced == "R":
                 for other_student in current_state.outside:
                     if other_student.reduced == "X":
+                        print(student.flag + " is moving with " + other_student.flag)
                         children.append(current_state.moveDisabled(student, other_student))
             else:
                 children.append(current_state.moveNormal(student))
