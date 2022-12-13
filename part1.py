@@ -1,7 +1,9 @@
+import random
+
 from constraint import *
 import sys
 
-
+# This class stores the information for each student
 class Student:
     def __init__(self, id, year, trouble, mobility, sibling) -> None:
         self.id = id
@@ -61,7 +63,7 @@ def setDomain(student_vector):
         else:
             student.setSibling(student_vector)
 
-
+# To store the information of the input file in a vector of students
 def readFile(input_file):
     f = open(input_file)
     # Vector of objects from the class Students
@@ -88,10 +90,12 @@ def movSeat(seat1, seat2):
 
     return seat2 != empty_seat
 
-# Constraint to avoid sitting R.M students close to troublesome
+# Constraint to avoid sitting R.M  or troublesome students close to troublesome
 def trouble(seat1,seat2):
-    # Seat1 -> sitio del troublesome
-    # Seat2 -> no sea sitio de troublesome or reduced
+    # Seat1 -> troublesome seat
+    # Seat2 -> it cannot be close to seat1
+    # The empty_seat vector will be used to indicate all the seats that cannot be
+    # occupied by R:M or other troublesome students
     if seat1 in (1, 5, 9, 13, 17, 21, 25, 29):
         empty_seat = [seat1-4, seat1-3, seat1+1, seat1+4, seat1+5]
     elif seat1 in (4, 8, 12, 16, 20, 24, 28, 32):
@@ -105,8 +109,16 @@ def trouble(seat1,seat2):
     return True
 
 # Constraint to sit siblings together
+def sib_together(seat1, seat2):
+    if seat1 in (1, 5, 9, 13):
+        sib = seat1 + 1
+    elif seat1 in (4, 8, 12, 16):
+        sib = seat1 - 1
+    else:
+        sib = seat1 +1
+    return seat2 == sib
 
-
+# MAIN FUNCTION
 def main(inpath):
     # Vector of students
     student_vector = readFile(inpath)
@@ -114,11 +126,12 @@ def main(inpath):
     setDomain(student_vector)
 
     problem = Problem()
-    # Add variables of the problem with corresponding domain
 
     # Vectors of reduced and troublesome students to have simpler constraints
     reduced = []
     troublesome = []
+
+    # Add variables of the problem with corresponding domain
     for st in student_vector:
         problem.addVariable(st.label, st.values)
         if st.mobility == "R":
@@ -148,14 +161,21 @@ def main(inpath):
     for st1 in student_vector:
         for st2 in student_vector:
             if st1.id == st2.sibling:
-                ...
+                problem.addConstraint(sib_together, (st1.label, st2.label))
 
-
+    # Solution of the problem
     solutions = problem.getSolutions()
     num_sol = len(solutions)
-    for i in range(0, 5):
-        print(solutions[i])
-        print(" ")
+    print("Number of possible solutions: ", num_sol)
+
+    if num_sol == 0:
+        print("There is no solution to your problem.")
+    else:
+        for i in range(0, 5):
+            sol = random.randint(1, num_sol)
+            print("Printing solution: ", sol)
+            print(solutions[sol])
+            print(" ")
 
 
 if __name__ == "__main__":
