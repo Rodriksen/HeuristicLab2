@@ -2,6 +2,7 @@ import sys
 import copy
 from time import time
 
+
 class Student:
     def __init__(self, label, seat):
         self.label = label
@@ -20,7 +21,10 @@ class State:
     def __init__(self, bus, outside, heuristic, g=0, h=0, f=0):
         self.bus = bus
         self.outside = outside
+        self.carry = 0
         self.heuristic = heuristic
+        self.multipliers = []
+        self.state_cost = 0
         self.g = g
         self.h = h
         self.f = f
@@ -45,7 +49,20 @@ class State:
             new.outside.pop(self.outside.index(student))
         else:
             new.outside.pop((self.outside.index(student))-1)
-        new.g += 3
+        #Multipliers of previous troublesome
+        multiplier = 1
+        for place in new.multipliers:
+            if disabled.seat > place:
+                multiplier = multiplier * 2
+        #Calculate the cost
+        if disabled.trouble == "C":
+            ...
+        elif student.trouble == "C":
+            ...
+        else:
+            ...
+        new.state_cost = (1+new.carry)+cost
+        new.g += new.state_cost
         new.findH()
         new.f = new.g + new.h
         return new
@@ -54,17 +71,16 @@ class State:
         new = copy.deepcopy(self)
         new.bus.append(student.flag)
         new.outside.pop(self.outside.index(student))
+        multiplier = 1
+        for place in new.multipliers:
+            if student.seat > place:
+                multiplier = multiplier * 2
         if student.trouble == "X":
-            new.g += 1
+            new.carry = 0
         else:
-            count = 0
-            for st in new.outside:
-                if st.seat > student.seat:
-                    if st.reduced == "R":
-                        count += 3
-                    elif st.reduced == "X":
-                        count += 1
-            new.g += count + 1
+            new.carry = 1
+            new.multipliers.append(student.seat)
+        new.g += (self.carry+1)*multiplier
         new.findH()
         new.f = new.g + new.h
         return new
@@ -73,7 +89,6 @@ class State:
         if self.bus == other_state.bus:
             return True
         return False
-
 
 
 def readFile(input_file):
@@ -138,10 +153,10 @@ def main(inpath, heuristic):
             print("The solution is: " + str(solution))
             print("Final cost: ", final_cost)
             print("Final time: ", final_time)
+            print("Expanded nodes: ", final_expanded)
             return solution
         # If not final, expand node
         expanded_counter += 1
-        print("Bus for iter " + str(expanded_counter))
         children = []
         for student in current_state.outside:
             if student.reduced == "R":
@@ -157,11 +172,6 @@ def main(inpath, heuristic):
                     if child.f < st.f:
                         open_list.remove(st)
             open_list.append(child)
-
-
-
-
-
 
 
 if __name__ == "__main__":
