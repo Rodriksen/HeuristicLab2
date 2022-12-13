@@ -17,13 +17,13 @@ class Student:
         print("mob: ", self.reduced)
 
 class State:
-    def __init__(self, bus, outside, heuristic, g=0, h=0):
+    def __init__(self, bus, outside, heuristic, g=0, h=0, f=0):
         self.bus = bus
         self.outside = outside
         self.heuristic = heuristic
         self.g = g
         self.h = h
-        self.f = self.g + self.h
+        self.f = f
 
     def isFinal(self):
         if self.outside == []:
@@ -38,8 +38,6 @@ class State:
 
     def moveDisabled(self, disabled, student):
         new = copy.deepcopy(self)
-        print("buses before operation")
-        print(self.bus)
         new.bus.append(disabled.flag)
         new.bus.append(student.flag)
         new.outside.pop(self.outside.index(disabled))
@@ -49,16 +47,11 @@ class State:
             new.outside.pop((self.outside.index(student))-1)
         new.g += 3
         new.findH()
-        print("buses after operation")
-        print(self.bus)
-        print(new.bus)
-
+        new.f = new.g + new.h
         return new
 
     def moveNormal(self, student):
         new = copy.deepcopy(self)
-        print("bus before operation")
-        print(self.bus)
         new.bus.append(student.flag)
         new.outside.pop(self.outside.index(student))
         if student.trouble == "X":
@@ -67,18 +60,13 @@ class State:
             count = 0
             for st in new.outside:
                 if st.seat > student.seat:
-                    print(str(st.seat) + ">" + str(student.seat))
                     if st.reduced == "R":
                         count += 3
                     elif st.reduced == "X":
                         count += 1
             new.g += count + 1
-            print(new.g)
         new.findH()
-        print("after operation")
-        print(self.bus)
-        print(new.bus)
-
+        new.f = new.g + new.h
         return new
 
     def isEqual(self, other_state):
@@ -140,26 +128,25 @@ def main(inpath, heuristic):
         open_list.pop(current_index)
 
         # Check if selected node is final
+
         if current_state.isFinal():
             end_time = time()
-            final_cost = current_state.f
+            final_cost = current_state.g
             final_expanded = expanded_counter
             final_time = end_time - start_time
             solution = current_state.bus
             print("The solution is: " + str(solution))
+            print("Final cost: ", final_cost)
+            print("Final time: ", final_time)
             return solution
         # If not final, expand node
         expanded_counter += 1
         print("Bus for iter " + str(expanded_counter))
-        print(current_state.bus)
         children = []
         for student in current_state.outside:
-            print("student being moved")
-            print(student.flag)
             if student.reduced == "R":
                 for other_student in current_state.outside:
                     if other_student.reduced == "X":
-                        print(student.flag + " is moving with " + other_student.flag)
                         children.append(current_state.moveDisabled(student, other_student))
             else:
                 children.append(current_state.moveNormal(student))
