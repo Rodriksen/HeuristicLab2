@@ -1,0 +1,55 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"202875aa-f4ac-44fb-a26b-5838508a6eeb\" name=\"Changes\" comment=\"faltan costes reduced cuando sea trouble\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/part2.py\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/part2.py\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/st2new.txt\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/st2new.txt\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2IoqYD0PBDIee7wAMfiNdXOPHnp\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">\r\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\r\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\r\n    <property name=\"last_opened_file_path\" value=\"$PROJECT_DIR$/part2.py\" />\r\n  </component>\r\n  <component name=\"RunManager\">\r\n    <configuration name=\"part2\" type=\"PythonConfigurationType\" factoryName=\"Python\" nameIsGenerated=\"true\">\r\n      <option name=\"INTERPRETER_OPTIONS\" value=\"\" />\r\n      <option name=\"PARENT_ENVS\" value=\"true\" />\r\n      <envs>\r\n        <env name=\"PYTHONUNBUFFERED\" value=\"1\" />\r\n      </envs>\r\n      <option name=\"SDK_HOME\" value=\"C:\\Users\\rodri\\AppData\\Local\\JetBrains\\PyCharmCE2021.2\\demo\\PyCharmLearningProject\\venv\\Scripts\\python.exe\" />\r\n      <option name=\"WORKING_DIRECTORY\" value=\"$PROJECT_DIR$\" />\r\n      <option name=\"IS_MODULE_SDK\" value=\"false\" />\r\n      <option name=\"ADD_CONTENT_ROOTS\" value=\"true\" />\r\n      <option name=\"ADD_SOURCE_ROOTS\" value=\"true\" />\r\n      <module name=\"\" />\r\n      <option name=\"SCRIPT_NAME\" value=\"$PROJECT_DIR$/part2.py\" />\r\n      <option name=\"PARAMETERS\" value=\"st2.txt 1\" />\r\n      <option name=\"SHOW_COMMAND_LINE\" value=\"false\" />\r\n      <option name=\"EMULATE_TERMINAL\" value=\"false\" />\r\n      <option name=\"MODULE_MODE\" value=\"false\" />\r\n      <option name=\"REDIRECT_INPUT\" value=\"false\" />\r\n      <option name=\"INPUT_FILE\" value=\"\" />\r\n      <method v=\"2\" />\r\n    </configuration>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"202875aa-f4ac-44fb-a26b-5838508a6eeb\" name=\"Changes\" comment=\"\" />\r\n      <created>1670858331272</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1670858331272</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"conversion to class based\">\r\n      <created>1670922085808</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1670922085808</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"clases un poco arregladas\">\r\n      <created>1670930298277</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1670930298277</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"solo fallan los costes\">\r\n      <created>1670932099117</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1670932099117</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"creemos que funciona, version con prints\">\r\n      <created>1670933292075</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1670933292075</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"hay que hacer nested cost para troublesome\">\r\n      <created>1670933628279</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1670933628279</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"faltan costes reduced\">\r\n      <created>1670963205275</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1670963205275</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"faltan costes reduced cuando sea trouble\">\r\n      <created>1671004816178</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1671004816178</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00008\" summary=\"faltan costes reduced cuando sea trouble\">\r\n      <created>1671005242543</created>\r\n      <option name=\"number\" value=\"00008\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1671005242543</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"9\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n    <option name=\"oldMeFiltersMigrated\" value=\"true\" />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"conversion to class based\" />\r\n    <MESSAGE value=\"clases un poco arregladas\" />\r\n    <MESSAGE value=\"solo fallan los costes\" />\r\n    <MESSAGE value=\"creemos que funciona, version con prints\" />\r\n    <MESSAGE value=\"hay que hacer nested cost para troublesome\" />\r\n    <MESSAGE value=\"faltan costes reduced\" />\r\n    <MESSAGE value=\"faltan costes reduced cuando sea trouble\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"faltan costes reduced cuando sea trouble\" />\r\n  </component>\r\n</project>
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	
++++ b/.idea/workspace.xml	
+@@ -1,10 +1,9 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="ChangeListManager">
+-    <list default="true" id="202875aa-f4ac-44fb-a26b-5838508a6eeb" name="Changes" comment="faltan costes reduced cuando sea trouble">
++    <list default="true" id="202875aa-f4ac-44fb-a26b-5838508a6eeb" name="Changes" comment="los costes tienen algún fallo con">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/part2.py" beforeDir="false" afterPath="$PROJECT_DIR$/part2.py" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/st2new.txt" beforeDir="false" afterPath="$PROJECT_DIR$/st2new.txt" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -38,7 +37,7 @@
+       <option name="ADD_SOURCE_ROOTS" value="true" />
+       <module name="" />
+       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/part2.py" />
+-      <option name="PARAMETERS" value="st2.txt 1" />
++      <option name="PARAMETERS" value="st2new.txt 2" />
+       <option name="SHOW_COMMAND_LINE" value="false" />
+       <option name="EMULATE_TERMINAL" value="false" />
+       <option name="MODULE_MODE" value="false" />
+@@ -112,7 +111,14 @@
+       <option name="project" value="LOCAL" />
+       <updated>1671005242543</updated>
+     </task>
+-    <option name="localTasksCounter" value="9" />
++    <task id="LOCAL-00009" summary="los costes tienen algún fallo con">
++      <created>1671010818175</created>
++      <option name="number" value="00009" />
++      <option name="presentableId" value="LOCAL-00009" />
++      <option name="project" value="LOCAL" />
++      <updated>1671010818175</updated>
++    </task>
++    <option name="localTasksCounter" value="10" />
+     <servers />
+   </component>
+   <component name="Vcs.Log.Tabs.Properties">
+@@ -135,6 +141,7 @@
+     <MESSAGE value="hay que hacer nested cost para troublesome" />
+     <MESSAGE value="faltan costes reduced" />
+     <MESSAGE value="faltan costes reduced cuando sea trouble" />
+-    <option name="LAST_COMMIT_MESSAGE" value="faltan costes reduced cuando sea trouble" />
++    <MESSAGE value="los costes tienen algún fallo con" />
++    <option name="LAST_COMMIT_MESSAGE" value="los costes tienen algún fallo con" />
+   </component>
+ </project>
+\ No newline at end of file
