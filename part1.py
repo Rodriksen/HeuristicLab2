@@ -172,7 +172,7 @@ def main(inpath):
         print("There is no solution to your problem.")
     else:
         for i in range(0, 5):
-            sol = random.randint(1, num_sol)
+            sol = random.randint(0, num_sol)
             print("Printing solution: ", sol)
             print(solutions[sol])
             print(" ")
