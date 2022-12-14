@@ -1,6 +1,7 @@
 import sys
 import copy
 from time import time
+from queue import PriorityQueue
 
 
 class Student:
@@ -28,6 +29,11 @@ class State:
         self.g = g
         self.h = h
         self.f = f
+
+    def __lt__ (self, other):
+        if self.f < other.f:
+            return True
+        return False
 
     def isFinal(self):
         if self.outside == []:
@@ -145,27 +151,14 @@ def main(inpath, heuristic):
     init.findH()
 
     # A*
-    open_list = []
-    open_list.append(init)
-    closed_list = []
+    open_list = PriorityQueue()
+    open_list.put(init)
 
     # Counter for expanded nodes
     expanded_counter = 0
-    while len(open_list):
-        current_state = open_list[0]
-        current_index = 0
-        index = 0
-
-        # Select node to expand
-        for node in open_list:
-            if node.f < current_state.f:
-                current_state = node
-                current_index = index
-            index += 1
-
-        closed_list.append(current_state)
-        open_list.pop(current_index)
-
+    while not open_list.empty():
+        current_state = open_list.get()
+        print(current_state.f)
         # Check if selected node is final
 
         if current_state.isFinal():
@@ -192,12 +185,7 @@ def main(inpath, heuristic):
                 children.append(current_state.moveNormal(student))
 
         for child in children:
-            for st in open_list:
-                if child.isEqual(st):
-                    if child.f < st.f:
-                        open_list.remove(st)
-            open_list.append(child)
-
+            open_list.put(child)
 
 if __name__ == "__main__":
     main(sys.argv[1], sys.argv[2])
