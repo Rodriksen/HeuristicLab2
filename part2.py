@@ -1,6 +1,7 @@
 import sys
 import copy
 from time import time
+from queue import PriorityQueue
 
 
 class Student:
@@ -9,7 +10,7 @@ class Student:
         self.seat = seat
         self.trouble = label[2]
         self.reduced = label[3]
-        self.flag = label + ":" + str(seat)
+        self.flag = label + ": " + str(seat)
 
     def st_print(self):
         print("label: ", self.label)
@@ -29,6 +30,11 @@ class State:
         self.h = h
         self.f = f
 
+    def __lt__(self, other):
+        if self.f < other.f:
+            return True
+        return False
+
     def isFinal(self):
         if self.outside == []:
             return True
@@ -39,6 +45,9 @@ class State:
             self.h = len(self.outside)
         elif self.heuristic == "2":
             self.h = 0
+            for i in self.outside:
+                if i.reduced == "R":
+                    self.h += 1
 
     def moveDisabled(self, disabled, student):
         new = copy.deepcopy(self)
@@ -63,23 +72,23 @@ class State:
                     st_multiplier = st_multiplier * 2
             if student.trouble == "C":
                 new.multipliers.append(student.seat)
-                new.state_cost = 2 * max((1 + new.carry) * 6 * dis_multiplier, st_multiplier) + self.state_cost
+                new.state_cost = 2 * (1 + new.carry) * 6 * dis_multiplier * st_multiplier + self.state_cost
                 new.carry = 1
             else:
-                new.state_cost = max(2 * (1 + new.carry) * 3 * dis_multiplier, 2 * st_multiplier) + self.state_cost
+                new.state_cost = 2 * (1 + new.carry) * 3 * dis_multiplier * st_multiplier + self.state_cost
                 new.carry = 0
         elif student.trouble == "C":
             for place in new.multipliers:
                 if student.seat > place:
                     st_multiplier = st_multiplier * 2
             new.multipliers.append(student.seat)
-            new.state_cost = 2 * max((1 + new.carry) * 3 * dis_multiplier, st_multiplier)
+            new.state_cost = 2 * (1 + new.carry) * 3 * dis_multiplier * st_multiplier
             new.carry = 1
         else:
             for place in new.multipliers:
                 if student.seat > place:
                     st_multiplier = st_multiplier * 2
-            new.state_cost = max((1 + new.carry) * 3 * dis_multiplier, st_multiplier)
+            new.state_cost = (1 + new.carry) * 3 * dis_multiplier * st_multiplier
             new.carry = 0
 
         new.g += new.state_cost
@@ -101,7 +110,8 @@ class State:
             new.carry = 1
             new.multipliers.append(student.seat)
             new.g += self.state_cost
-        new.g += (self.carry+1)*multiplier
+        new.state_cost = (self.carry + 1) * multiplier
+        new.g += new.state_cost
         new.findH()
         new.f = new.g + new.h
         return new
@@ -126,12 +136,12 @@ def readFile(input_file):
 
     f.close()
     # Vector of students
-    return vector
+    return vector, text
 
 
 def main(inpath, heuristic):
     # Read file
-    std_vec = readFile(inpath)
+    std_vec, input_text = readFile(inpath)
 
     # Counter for time, we start the timer when the algorithm starts
     start_time = time()
@@ -141,45 +151,43 @@ def main(inpath, heuristic):
     init.findH()
 
     # A*
-    open_list = []
-    open_list.append(init)
-    closed_list = []
+    open_list = PriorityQueue()
+    open_list.put(init)
 
     # Counter for expanded nodes
     expanded_counter = 0
-    while len(open_list):
-        current_state = open_list[0]
-        current_index = 0
-        index = 0
-
-        # Select node to expand
-        for node in open_list:
-            if node.f < current_state.f:
-                current_state = node
-                current_index = index
-            index += 1
-
-        closed_list.append(current_state)
-        open_list.pop(current_index)
-
+    while not open_list.empty():
+        current_state = open_list.get()
         # Check if selected node is final
 
         if current_state.isFinal():
             end_time = time()
+            student_string = inpath.replace(".prob", "") + "-" + heuristic + ".txt"
+            stat_string = inpath.replace(".prob", "") + "-" + heuristic + ".stat"
+            st_file = open(student_string, "w")
+            stat_file = open(stat_string, "w")
+            st_file.write("INPUT: {" + input_text + "}\n")
+            st_file.write("OUTPUT: {")
+            line = ""
+            for i in current_state.bus:
+                line = line + i + ", "
+            line = line.rstrip(", ")
+            st_file.write(line + "}")
+            st_file.close()
             final_cost = current_state.g
             final_expanded = expanded_counter
             final_time = end_time - start_time
             solution = current_state.bus
-            print("The solution is: " + str(solution))
-            print("Final cost: ", final_cost)
-            print("Final time: ", final_time)
-            print("Expanded nodes: ", final_expanded)
+            stat_file.write("Final cost: " + str(final_cost) + "\n")
+            stat_file.write("Final time: " + str(final_time) + " seconds\n")
+            stat_file.write("Expanded nodes: " + str(final_expanded) + "\n")
+            stat_file.write("Solution length: " + str(len(current_state.bus)))
+            stat_file.close()
             return solution
 
         # If not final, expand node
         expanded_counter += 1
         children = []
-        print(current_state.bus, "/", current_state.g)
         for student in current_state.outside:
             if student.reduced == "R":
                 for other_student in current_state.outside:
@@ -189,12 +197,7 @@ def main(inpath, heuristic):
                 children.append(current_state.moveNormal(student))
 
         for child in children:
-            for st in open_list:
-                if child.isEqual(st):
-                    if child.f < st.f:
-                        open_list.remove(st)
-            open_list.append(child)
-
+            open_list.put(child)
 
 if __name__ == "__main__":
     main(sys.argv[1], sys.argv[2])
