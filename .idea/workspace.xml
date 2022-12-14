@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="202875aa-f4ac-44fb-a26b-5838508a6eeb" name="Changes" comment="part 2 with files correct">
-      <change afterPath="$PROJECT_DIR$/HeuristicLab2/part-2/ASTAR-calls.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HeuristicLab2/part-2/ASTAR-tests/st1.prob" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="202875aa-f4ac-44fb-a26b-5838508a6eeb" name="Changes" comment="TESTS PERFORMED 1-2">
+      <change afterPath="$PROJECT_DIR$/HeuristicLab2/part-2/ASTAR-tests/st3.prob" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HeuristicLab2/part-2/ASTAR-tests/st4.prob" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HeuristicLab2/part-2/ASTAR-tests/st5.prob" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HeuristicLab2/part-2/ASTAR-tests/st2-2.stat" beforeDir="false" afterPath="$PROJECT_DIR$/HeuristicLab2/part-2/ASTAR-tests/st2-2.stat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HeuristicLab2/part-2/ASTAR-tests/st2.prob" beforeDir="false" afterPath="$PROJECT_DIR$/HeuristicLab2/part-2/ASTAR-tests/st2.prob" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,7 +80,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671032315099</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="TESTS PERFORMED 1-2">
+      <created>1671037684588</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1671037684588</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -110,6 +118,7 @@
     <MESSAGE value="funciona todo, vamos a hacer priority queue" />
     <MESSAGE value="part 2 finished XD &lt;3" />
     <MESSAGE value="part 2 with files correct" />
-    <option name="LAST_COMMIT_MESSAGE" value="part 2 with files correct" />
+    <MESSAGE value="TESTS PERFORMED 1-2" />
+    <option name="LAST_COMMIT_MESSAGE" value="TESTS PERFORMED 1-2" />
   </component>
 </project>
