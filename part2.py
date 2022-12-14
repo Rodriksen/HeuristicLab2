@@ -10,7 +10,7 @@ class Student:
         self.seat = seat
         self.trouble = label[2]
         self.reduced = label[3]
-        self.flag = label + ":" + str(seat)
+        self.flag = label + ": " + str(seat)
 
     def st_print(self):
         print("label: ", self.label)
@@ -30,7 +30,7 @@ class State:
         self.h = h
         self.f = f
 
-    def __lt__ (self, other):
+    def __lt__(self, other):
         if self.f < other.f:
             return True
         return False
@@ -136,12 +136,12 @@ def readFile(input_file):
 
     f.close()
     # Vector of students
-    return vector
+    return vector, text
 
 
 def main(inpath, heuristic):
     # Read file
-    std_vec = readFile(inpath)
+    std_vec, input_text = readFile(inpath)
 
     # Counter for time, we start the timer when the algorithm starts
     start_time = time()
@@ -158,19 +158,31 @@ def main(inpath, heuristic):
     expanded_counter = 0
     while not open_list.empty():
         current_state = open_list.get()
-        print(current_state.f)
         # Check if selected node is final
 
         if current_state.isFinal():
             end_time = time()
+            student_string = inpath.replace(".prob", "") + "-" + heuristic + ".txt"
+            stat_string = inpath.replace(".prob", "") + "-" + heuristic + ".stat"
+            st_file = open(student_string, "w")
+            stat_file = open(stat_string, "w")
+            st_file.write("INPUT: {" + input_text + "}\n")
+            st_file.write("OUTPUT: {")
+            line = ""
+            for i in current_state.bus:
+                line = line + i + ", "
+            line = line.rstrip(", ")
+            st_file.write(line + "}")
+            st_file.close()
             final_cost = current_state.g
             final_expanded = expanded_counter
             final_time = end_time - start_time
             solution = current_state.bus
-            print("The solution is: " + str(solution))
-            print("Final cost: ", final_cost)
-            print("Final time: ", final_time)
-            print("Expanded nodes: ", final_expanded)
+            stat_file.write("Final cost: " + str(final_cost) + "\n")
+            stat_file.write("Final time: " + str(final_time) + " seconds\n")
+            stat_file.write("Expanded nodes: " + str(final_expanded) + "\n")
+            stat_file.write("Solution length: " + str(len(current_state.bus)))
+            stat_file.close()
             return solution
 
         # If not final, expand node
