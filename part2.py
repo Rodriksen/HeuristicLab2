@@ -61,7 +61,7 @@ class State:
             ...
         else:
             ...
-        new.state_cost = (1+new.carry)+cost
+        new.state_cost = (1 + new.carry)
         new.g += new.state_cost
         new.findH()
         new.f = new.g + new.h
@@ -112,7 +112,7 @@ def main(inpath, heuristic):
     # Read file
     std_vec = readFile(inpath)
 
-    # Counter for time
+    # Counter for time, we start the timer when the algorithm starts
     start_time = time()
 
     # Initial state
@@ -120,9 +120,8 @@ def main(inpath, heuristic):
     init.findH()
 
     # A*
-    state = init
     open_list = []
-    open_list.append(state)
+    open_list.append(init)
     closed_list = []
 
     # Counter for expanded nodes
@@ -155,6 +154,7 @@ def main(inpath, heuristic):
             print("Final time: ", final_time)
             print("Expanded nodes: ", final_expanded)
             return solution
+
         # If not final, expand node
         expanded_counter += 1
         children = []
