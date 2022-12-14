@@ -9,7 +9,7 @@ class Student:
         self.seat = seat
         self.trouble = label[2]
         self.reduced = label[3]
-        self.flag = label + str(seat)
+        self.flag = label + ":" + str(seat)
 
     def st_print(self):
         print("label: ", self.label)
@@ -49,19 +49,39 @@ class State:
             new.outside.pop(self.outside.index(student))
         else:
             new.outside.pop((self.outside.index(student))-1)
-        #Multipliers of previous troublesome
-        multiplier = 1
+        #Multipliers of previous troublesome for reduced mobility
+        dis_multiplier = 1
+        st_multiplier = 1
         for place in new.multipliers:
             if disabled.seat > place:
-                multiplier = multiplier * 2
+                dis_multiplier = dis_multiplier * 2
         #Calculate the cost
         if disabled.trouble == "C":
-            ...
+            new.multipliers.append(disabled.seat)
+            for place in new.multipliers:
+                if student.seat > place:
+                    st_multiplier = st_multiplier * 2
+            if student.trouble == "C":
+                new.multipliers.append(student.seat)
+                new.state_cost = 2 * max((1 + new.carry) * 6 * dis_multiplier, st_multiplier) + self.state_cost
+                new.carry = 1
+            else:
+                new.state_cost = 2 * max((1 + new.carry) * 3 * dis_multiplier, st_multiplier) + self.state_cost
+                new.carry = 0
         elif student.trouble == "C":
-            ...
+            for place in new.multipliers:
+                if student.seat > place:
+                    st_multiplier = st_multiplier * 2
+            new.multipliers.append(student.seat)
+            new.state_cost = max((1 + new.carry) * 6 * dis_multiplier, st_multiplier)
+            new.carry = 1
         else:
-            ...
-        new.state_cost = (1 + new.carry)
+            for place in new.multipliers:
+                if student.seat > place:
+                    st_multiplier = st_multiplier * 2
+            new.state_cost = max((1 + new.carry) * 3 * dis_multiplier, st_multiplier)
+            new.carry = 0
+
         new.g += new.state_cost
         new.findH()
         new.f = new.g + new.h
@@ -80,6 +100,7 @@ class State:
         else:
             new.carry = 1
             new.multipliers.append(student.seat)
+            new.g += self.state_cost
         new.g += (self.carry+1)*multiplier
         new.findH()
         new.f = new.g + new.h

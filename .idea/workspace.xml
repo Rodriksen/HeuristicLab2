@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="202875aa-f4ac-44fb-a26b-5838508a6eeb" name="Changes" comment="faltan costes reduced cuando sea trouble">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/part2.py" beforeDir="false" afterPath="$PROJECT_DIR$/part2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/st2new.txt" beforeDir="false" afterPath="$PROJECT_DIR$/st2new.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,7 +38,7 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/part2.py" />
-      <option name="PARAMETERS" value="st2.txt 2" />
+      <option name="PARAMETERS" value="st2.txt 1" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -103,7 +105,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671004816178</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="faltan costes reduced cuando sea trouble">
+      <created>1671005242543</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1671005242543</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
