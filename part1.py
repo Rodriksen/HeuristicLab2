@@ -176,15 +176,15 @@ def main(inpath):
     print("Solutions found")
     num_sol = len(solutions)
     print("Number of possible solutions: ", num_sol)
-
-    if num_sol == 0:
-        print("There is no solution to your problem.")
-    else:
+    filename = inpath.replace(".txt", ".output")
+    out = open(filename, "w")
+    out.write("Number of solutions: " + str(num_sol) + "\n")
+    if num_sol != 0:
         for i in range(0, 5):
             sol = random.randint(0, num_sol)
-            print("Printing solution: ", sol)
-            print(solutions[sol])
-            print(" ")
+            out.write("Printing solution: " + str(sol) + "\n")
+            out.write(str(solutions[sol]) + "\n")
+    out.close()
 
 
 if __name__ == "__main__":
