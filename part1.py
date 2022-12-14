@@ -3,6 +3,7 @@ import random
 from constraint import *
 import sys
 
+
 # This class stores the information for each student
 class Student:
     def __init__(self, id, year, trouble, mobility, sibling) -> None:
@@ -46,6 +47,8 @@ class Student:
                 bro.values = [2, 3, 14, 15]
             elif self.mobility == "R":
                 self.values = [1, 4, 13, 16]
+        elif self.year == bro.year:
+            self.setNoSibling()
 
     def st_print(self):
         print("id: ", self.id)
@@ -62,6 +65,7 @@ def setDomain(student_vector):
             student.setNoSibling()
         else:
             student.setSibling(student_vector)
+
 
 # To store the information of the input file in a vector of students
 def readFile(input_file):
@@ -84,39 +88,40 @@ def readFile(input_file):
 def movSeat(seat1, seat2):
     # Consider seat1 is the corresponding to R.M
     if seat1 in (1, 3, 13, 15, 17, 19):
-        empty_seat = seat1+1
+        empty_seat = seat1 + 1
     else:
-        empty_seat = seat1-1
+        empty_seat = seat1 - 1
 
     return seat2 != empty_seat
 
+
 # Constraint to avoid sitting R.M  or troublesome students close to troublesome
-def trouble(seat1,seat2):
+def trouble(seat1, seat2):
     # Seat1 -> troublesome seat
     # Seat2 -> it cannot be close to seat1
     # The empty_seat vector will be used to indicate all the seats that cannot be
     # occupied by R:M or other troublesome students
     if seat1 in (1, 5, 9, 13, 17, 21, 25, 29):
-        empty_seat = [seat1-4, seat1-3, seat1+1, seat1+4, seat1+5]
+        empty_seat = [seat1 - 4, seat1 - 3, seat1 + 1, seat1 + 4, seat1 + 5]
     elif seat1 in (4, 8, 12, 16, 20, 24, 28, 32):
-        empty_seat = [seat1-5, seat1-4, seat1-1, seat1+3, seat1+4]
+        empty_seat = [seat1 - 5, seat1 - 4, seat1 - 1, seat1 + 3, seat1 + 4]
     else:
-        empty_seat = [seat1-5, seat1-4, seat1-3, seat1-1, seat1+1, seat1+3, seat1+4, seat1+5]
+        empty_seat = [seat1 - 5, seat1 - 4, seat1 - 3, seat1 - 1, seat1 + 1, seat1 + 3, seat1 + 4, seat1 + 5]
 
     for seat in empty_seat:
         if seat2 == seat:
             return False
     return True
 
+
 # Constraint to sit siblings together
 def sib_together(seat1, seat2):
-    if seat1 in (1, 5, 9, 13):
-        sib = seat1 + 1
-    elif seat1 in (4, 8, 12, 16):
+    if seat1 % 2 == 0:
         sib = seat1 - 1
     else:
-        sib = seat1 +1
+        sib = seat1 + 1
     return seat2 == sib
+
 
 # MAIN FUNCTION
 def main(inpath):
@@ -130,7 +135,7 @@ def main(inpath):
     # Vectors of reduced and troublesome students to have simpler constraints
     reduced = []
     troublesome = []
-
+    print("Add variables")
     # Add variables of the problem with corresponding domain
     for st in student_vector:
         problem.addVariable(st.label, st.values)
@@ -138,7 +143,7 @@ def main(inpath):
             reduced.append(st)
         if st.trouble == "C":
             troublesome.append(st)
-
+    print("Add constraints")
     # Add constraints
     # One student per seat
     problem.addConstraint(AllDifferentConstraint())
@@ -161,10 +166,14 @@ def main(inpath):
     for st1 in student_vector:
         for st2 in student_vector:
             if st1.id == st2.sibling:
-                problem.addConstraint(sib_together, (st1.label, st2.label))
-
+                if st1.mobility == "X" and st2.mobility == "X":
+                    problem.addConstraint(sib_together, (st1.label, st2.label))
+    print("Get solutions")
     # Solution of the problem
+    solution = problem.getSolution()
+    print(solution)
     solutions = problem.getSolutions()
+    print("Solutions found")
     num_sol = len(solutions)
     print("Number of possible solutions: ", num_sol)
 
