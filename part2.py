@@ -66,14 +66,14 @@ class State:
                 new.state_cost = 2 * max((1 + new.carry) * 6 * dis_multiplier, st_multiplier) + self.state_cost
                 new.carry = 1
             else:
-                new.state_cost = 2 * max((1 + new.carry) * 3 * dis_multiplier, st_multiplier) + self.state_cost
+                new.state_cost = max(2 * (1 + new.carry) * 3 * dis_multiplier, 2 * st_multiplier) + self.state_cost
                 new.carry = 0
         elif student.trouble == "C":
             for place in new.multipliers:
                 if student.seat > place:
                     st_multiplier = st_multiplier * 2
             new.multipliers.append(student.seat)
-            new.state_cost = max((1 + new.carry) * 6 * dis_multiplier, st_multiplier)
+            new.state_cost = 2 * max((1 + new.carry) * 3 * dis_multiplier, st_multiplier)
             new.carry = 1
         else:
             for place in new.multipliers:
@@ -179,6 +179,7 @@ def main(inpath, heuristic):
         # If not final, expand node
         expanded_counter += 1
         children = []
+        print(current_state.bus, "/", current_state.g)
         for student in current_state.outside:
             if student.reduced == "R":
                 for other_student in current_state.outside:
