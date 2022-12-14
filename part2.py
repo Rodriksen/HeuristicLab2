@@ -1,4 +1,5 @@
 import sys
+import copy
 from time import time
 
 
@@ -8,7 +9,7 @@ class Student:
         self.seat = seat
         self.trouble = label[2]
         self.reduced = label[3]
-        self.flag = label + str(seat)
+        self.flag = label + ":" + str(seat)
 
     def st_print(self):
         print("label: ", self.label)
@@ -16,15 +17,17 @@ class Student:
         print("tr: ", self.trouble)
         print("mob: ", self.reduced)
 
-
 class State:
-    def __init__(self, bus, outside, heuristic, g=0, h=0):
+    def __init__(self, bus, outside, heuristic, g=0, h=0, f=0):
         self.bus = bus
         self.outside = outside
+        self.carry = 0
         self.heuristic = heuristic
+        self.multipliers = []
+        self.state_cost = 0
         self.g = g
         self.h = h
-        self.f = self.g + self.h
+        self.f = f
 
     def isFinal(self):
         if self.outside == []:
@@ -38,39 +41,69 @@ class State:
             self.h = 0
 
     def moveDisabled(self, disabled, student):
-        new_bus = self.bus
-        new_bus.append(disabled.flag)
-        new_bus.append(student.flag)
-        new_out = self.outside
-        new_out.remove(disabled)
-        new_out.remove(student)
-        heuristic = self.heuristic
-        new_g = 3 + self.g
-        new = State(new_bus, new_out, heuristic, new_g, 0)
-        new.findH()
+        new = copy.deepcopy(self)
+        new.bus.append(disabled.flag)
+        new.bus.append(student.flag)
+        new.outside.pop(self.outside.index(disabled))
+        if (self.outside.index(disabled)) > self.outside.index(student):
+            new.outside.pop(self.outside.index(student))
+        else:
+            new.outside.pop((self.outside.index(student))-1)
+        #Multipliers of previous troublesome for reduced mobility
+        dis_multiplier = 1
+        st_multiplier = 1
+        for place in new.multipliers:
+            if disabled.seat > place:
+                dis_multiplier = dis_multiplier * 2
+        #Calculate the cost
+        if disabled.trouble == "C":
+            new.multipliers.append(disabled.seat)
+            for place in new.multipliers:
+                if student.seat > place:
+                    st_multiplier = st_multiplier * 2
+            if student.trouble == "C":
+                new.multipliers.append(student.seat)
+                new.state_cost = 2 * max((1 + new.carry) * 6 * dis_multiplier, st_multiplier) + self.state_cost
+                new.carry = 1
+            else:
+                new.state_cost = 2 * max((1 + new.carry) * 3 * dis_multiplier, st_multiplier) + self.state_cost
+                new.carry = 0
+        elif student.trouble == "C":
+            for place in new.multipliers:
+                if student.seat > place:
+                    st_multiplier = st_multiplier * 2
+            new.multipliers.append(student.seat)
+            new.state_cost = max((1 + new.carry) * 6 * dis_multiplier, st_multiplier)
+            new.carry = 1
+        else:
+            for place in new.multipliers:
+                if student.seat > place:
+                    st_multiplier = st_multiplier * 2
+            new.state_cost = max((1 + new.carry) * 3 * dis_multiplier, st_multiplier)
+            new.carry = 0
 
+        new.g += new.state_cost
+        new.findH()
+        new.f = new.g + new.h
         return new
 
     def moveNormal(self, student):
-        new_bus = self.bus
-        new_bus.append(student.flag)
-        new_out = self.outside
-        new_out.remove(student)
-        heuristic = self.heuristic
+        new = copy.deepcopy(self)
+        new.bus.append(student.flag)
+        new.outside.pop(self.outside.index(student))
+        multiplier = 1
+        for place in new.multipliers:
+            if student.seat > place:
+                multiplier = multiplier * 2
         if student.trouble == "X":
-            new_g = 1 + self.g
+            new.carry = 0
         else:
-            count = 0
-            for st in new_out:
-                if st.seat > student.seat:
-                    if st.reduced == "R":
-                        count += 3
-                    elif st.reduced == "X":
-                        count += 1
-            new_g = 2*count
-        new = State(new_bus, new_out, heuristic, new_g, 0)
+            new.carry = 1
+            new.multipliers.append(student.seat)
+            new.g += self.state_cost
+        new.g += (self.carry+1)*multiplier
         new.findH()
-
+        new.f = new.g + new.h
         return new
 
     def isEqual(self, other_state):
@@ -100,7 +133,7 @@ def main(inpath, heuristic):
     # Read file
     std_vec = readFile(inpath)
 
-    # Counter for time
+    # Counter for time, we start the timer when the algorithm starts
     start_time = time()
 
     # Initial state
@@ -108,9 +141,8 @@ def main(inpath, heuristic):
     init.findH()
 
     # A*
-    state = init
     open_list = []
-    open_list.append(state)
+    open_list.append(init)
     closed_list = []
 
     # Counter for expanded nodes
@@ -131,12 +163,17 @@ def main(inpath, heuristic):
         open_list.pop(current_index)
 
         # Check if selected node is final
+
         if current_state.isFinal():
             end_time = time()
-            final_cost = current_state.f
+            final_cost = current_state.g
             final_expanded = expanded_counter
             final_time = end_time - start_time
             solution = current_state.bus
+            print("The solution is: " + str(solution))
+            print("Final cost: ", final_cost)
+            print("Final time: ", final_time)
+            print("Expanded nodes: ", final_expanded)
             return solution
 
         # If not final, expand node
@@ -156,11 +193,6 @@ def main(inpath, heuristic):
                     if child.f < st.f:
                         open_list.remove(st)
             open_list.append(child)
-
-
-
-
-
 
 
 if __name__ == "__main__":
