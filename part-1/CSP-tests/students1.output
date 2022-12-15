@@ -1,11 +1,11 @@
 Number of solutions: 576576
-Printing solution: 431565
-{'4CR': 17, '8XR': 19, '1CX': 8, '7CX': 25, '3XX': 7, '2XX': 32, '5XX': 11, '6XX': 14}
-Printing solution: 478095
-{'4CR': 17, '8XR': 19, '1CX': 1, '7CX': 26, '3XX': 2, '2XX': 23, '5XX': 14, '6XX': 8}
-Printing solution: 152670
-{'4CR': 20, '8XR': 17, '1CX': 5, '7CX': 28, '3XX': 6, '2XX': 31, '5XX': 15, '6XX': 13}
-Printing solution: 521899
-{'4CR': 17, '8XR': 20, '1CX': 8, '7CX': 28, '3XX': 7, '2XX': 24, '5XX': 5, '6XX': 4}
-Printing solution: 208096
-{'4CR': 19, '8XR': 17, '1CX': 12, '7CX': 25, '3XX': 11, '2XX': 21, '5XX': 6, '6XX': 13}
+Printing solution: 244574
+{'4CR': 19, '8XR': 17, '1CX': 5, '7CX': 30, '3XX': 6, '2XX': 32, '5XX': 15, '6XX': 11}
+Printing solution: 363153
+{'4CR': 18, '8XR': 20, '1CX': 4, '7CX': 27, '3XX': 3, '2XX': 32, '5XX': 9, '6XX': 12}
+Printing solution: 515858
+{'4CR': 17, '8XR': 20, '1CX': 8, '7CX': 31, '3XX': 7, '2XX': 24, '5XX': 2, '6XX': 13}
+Printing solution: 570400
+{'4CR': 17, '8XR': 20, '1CX': 1, '7CX': 28, '3XX': 2, '2XX': 21, '5XX': 4, '6XX': 3}
+Printing solution: 137624
+{'4CR': 20, '8XR': 17, '1CX': 8, '7CX': 28, '3XX': 7, '2XX': 23, '5XX': 12, '6XX': 6}

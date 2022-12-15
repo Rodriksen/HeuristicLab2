@@ -4,12 +4,47 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="202875aa-f4ac-44fb-a26b-5838508a6eeb" name="Changes" comment="test parte 1">
+    <list default="true" id="685e4ebe-719d-478c-8244-d4228a99a60b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/part-2/ASTAR-tests/st6.prob" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/part-1/CSP-calls.sh" beforeDir="false" afterPath="$PROJECT_DIR$/part-1/CSP-calls.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/part-1/CSP-tests/student3s.txt" beforeDir="false" afterPath="$PROJECT_DIR$/part-1/CSP-tests/students3.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/part-1/CSP-tests/students1.output" beforeDir="false" afterPath="$PROJECT_DIR$/part-1/CSP-tests/students1.output" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/part-1/CSP-tests/students2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/part-1/CSP-tests/students2.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/part-1/CSPBus.py" beforeDir="false" afterPath="$PROJECT_DIR$/part-1/CSPBus.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/part-2/ASTAR-calls.sh" beforeDir="false" afterPath="$PROJECT_DIR$/part-2/ASTAR-calls.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/part-2/ASTAR-tests/st1-1.output" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/part-2/ASTAR-tests/st1-1.stat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/part-2/ASTAR-tests/st1-2.output" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/part-2/ASTAR-tests/st1-2.stat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/part-2/ASTAR-tests/st1-3.output" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/part-2/ASTAR-tests/st1-3.stat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/part-2/ASTAR-tests/st2-1.output" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/part-2/ASTAR-tests/st2-1.stat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/part-2/ASTAR-tests/st2-2.output" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/part-2/ASTAR-tests/st2-2.stat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/part-2/ASTAR-tests/st2-2.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/part-2/ASTAR-tests/st2-3.output" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/part-2/ASTAR-tests/st2-3.stat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/part-2/ASTAR-tests/st3-1.output" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/part-2/ASTAR-tests/st3-1.stat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/part-2/ASTAR-tests/st3-2.output" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/part-2/ASTAR-tests/st3-2.stat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/part-2/ASTAR-tests/st3-3.output" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/part-2/ASTAR-tests/st3-3.stat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/part-2/ASTAR-tests/st4-1.output" beforeDir="false" afterPath="$PROJECT_DIR$/part-2/ASTAR-tests/st4-1.output" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/part-2/ASTAR-tests/st4-1.stat" beforeDir="false" afterPath="$PROJECT_DIR$/part-2/ASTAR-tests/st4-1.stat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/part-2/ASTAR-tests/st4-2.output" beforeDir="false" afterPath="$PROJECT_DIR$/part-2/ASTAR-tests/st4-2.output" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/part-2/ASTAR-tests/st4-2.stat" beforeDir="false" afterPath="$PROJECT_DIR$/part-2/ASTAR-tests/st4-2.stat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/part-2/ASTAR-tests/st4-3.output" beforeDir="false" afterPath="$PROJECT_DIR$/part-2/ASTAR-tests/st4-3.output" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/part-2/ASTAR-tests/st4-3.stat" beforeDir="false" afterPath="$PROJECT_DIR$/part-2/ASTAR-tests/st4-3.stat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/part-2/ASTAR-tests/st5-1.output" beforeDir="false" afterPath="$PROJECT_DIR$/part-2/ASTAR-tests/st5-1.output" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/part-2/ASTAR-tests/st5-1.stat" beforeDir="false" afterPath="$PROJECT_DIR$/part-2/ASTAR-tests/st5-1.stat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/part-2/ASTAR-tests/st5-2.output" beforeDir="false" afterPath="$PROJECT_DIR$/part-2/ASTAR-tests/st5-2.output" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/part-2/ASTAR-tests/st5-2.stat" beforeDir="false" afterPath="$PROJECT_DIR$/part-2/ASTAR-tests/st5-2.stat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/part-2/ASTAR-tests/st5-3.output" beforeDir="false" afterPath="$PROJECT_DIR$/part-2/ASTAR-tests/st5-3.output" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/part-2/ASTAR-tests/st5-3.stat" beforeDir="false" afterPath="$PROJECT_DIR$/part-2/ASTAR-tests/st5-3.stat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/part-2/ASTAR-tests/st5.prob" beforeDir="false" afterPath="$PROJECT_DIR$/part-2/ASTAR-tests/st5.prob" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/part-2/ASTARBusQueue.py" beforeDir="false" afterPath="$PROJECT_DIR$/part-2/ASTARBusQueue.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,9 +62,9 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/part-1/CSPBus.py" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/part-2/ASTARBusQueue.py" />
   </component>
-  <component name="RunManager" selected="Python.CSPBus">
+  <component name="RunManager" selected="Python.part2">
     <configuration name="CSPBus" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="HeuristicLab2" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -37,13 +72,13 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="C:\Users\sloza\anaconda3\python.exe" />
+      <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/part-1" />
-      <option name="IS_MODULE_SDK" value="false" />
+      <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/part-1/CSPBus.py" />
-      <option name="PARAMETERS" value="./CSP-tests/students2.txt" />
+      <option name="PARAMETERS" value="CSP-tests/students2.txt" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -52,19 +87,19 @@
       <method v="2" />
     </configuration>
     <configuration name="part2" type="PythonConfigurationType" factoryName="Python">
+      <module name="HeuristicLab2" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="C:\Users\rodri\AppData\Local\JetBrains\PyCharmCE2021.2\demo\PyCharmLearningProject\venv\Scripts\python.exe" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/part-2" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/part2.py" />
-      <option name="PARAMETERS" value="st2.prob 1" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/part-2/ASTARBusQueue.py" />
+      <option name="PARAMETERS" value="ASTAR-tests/st2.prob 2" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -73,14 +108,14 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.part2" />
       <item itemvalue="Python.CSPBus" />
+      <item itemvalue="Python.part2" />
     </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="202875aa-f4ac-44fb-a26b-5838508a6eeb" name="Changes" comment="los costes tienen algún fallo con" />
+      <changelist id="685e4ebe-719d-478c-8244-d4228a99a60b" name="Changes" comment="" />
       <created>1671023787048</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -107,14 +142,7 @@
       <option name="project" value="LOCAL" />
       <updated>1671032315099</updated>
     </task>
-    <task id="LOCAL-00004" summary="test parte 1">
-      <created>1671037104507</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1671037104507</updated>
-    </task>
-    <option name="localTasksCounter" value="5" />
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -145,7 +173,6 @@
     <MESSAGE value="funciona todo, vamos a hacer priority queue" />
     <MESSAGE value="part 2 finished XD &lt;3" />
     <MESSAGE value="part 2 with files correct" />
-    <MESSAGE value="test parte 1" />
-    <option name="LAST_COMMIT_MESSAGE" value="test parte 1" />
+    <option name="LAST_COMMIT_MESSAGE" value="part 2 with files correct" />
   </component>
 </project>
