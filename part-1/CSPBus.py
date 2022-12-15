@@ -168,14 +168,10 @@ def main(inpath):
             if st1.id == st2.sibling:
                 if st1.mobility == "X" and st2.mobility == "X":
                     problem.addConstraint(sib_together, (st1.label, st2.label))
-    print("Get solutions")
     # Solution of the problem
     solution = problem.getSolution()
-    print(solution)
     solutions = problem.getSolutions()
-    print("Solutions found")
     num_sol = len(solutions)
-    print("Number of possible solutions: ", num_sol)
     filename = inpath.replace(".txt", ".output")
     out = open(filename, "w")
     out.write("Number of solutions: " + str(num_sol) + "\n")

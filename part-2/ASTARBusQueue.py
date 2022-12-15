@@ -18,7 +18,6 @@ class Student:
         print("tr: ", self.trouble)
         print("mob: ", self.reduced)
 
-
 class State:
     def __init__(self, bus, outside, heuristic, g=0, h=0, f=0):
         self.bus = bus
@@ -49,8 +48,6 @@ class State:
             for i in self.outside:
                 if i.reduced == "R":
                     self.h += 1
-        elif self.heuristic == "3":
-            self.h = 0
 
     def moveDisabled(self, disabled, student):
         new = copy.deepcopy(self)
@@ -162,6 +159,7 @@ def main(inpath, heuristic):
     while not open_list.empty():
         current_state = open_list.get()
         # Check if selected node is final
+
         if current_state.isFinal():
             end_time = time()
             student_string = inpath.replace(".prob", "") + "-" + heuristic + ".output"
@@ -200,7 +198,6 @@ def main(inpath, heuristic):
 
         for child in children:
             open_list.put(child)
-
 
 if __name__ == "__main__":
     main(sys.argv[1], sys.argv[2])
