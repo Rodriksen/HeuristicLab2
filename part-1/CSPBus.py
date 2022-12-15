@@ -169,7 +169,6 @@ def main(inpath):
                 if st1.mobility == "X" and st2.mobility == "X":
                     problem.addConstraint(sib_together, (st1.label, st2.label))
     # Solution of the problem
-    solution = problem.getSolution()
     solutions = problem.getSolutions()
     num_sol = len(solutions)
     filename = inpath.replace(".txt", ".output")
