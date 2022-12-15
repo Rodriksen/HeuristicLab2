@@ -80,43 +80,38 @@ class State:
                     st_multiplier = st_multiplier * 2
             new.multipliers.append(student.seat)
             new.state_cost = 2 * (1 + new.carry) * 3 * dis_multiplier * st_multiplier
-            new.carry = 1
+            new.carry = 1  # Next student cost will be doubled
         else:  # Find the cost for XX
             for place in new.multipliers:
                 if student.seat > place:
                     st_multiplier = st_multiplier * 2
             new.state_cost = (1 + new.carry) * 3 * dis_multiplier * st_multiplier
-            new.carry = 0
+            new.carry = 0  # Next student cost will be doubled
 
-        new.g += new.state_cost
-        new.findH()
-        new.f = new.g + new.h
+        new.g += new.state_cost  # Update the path cost
+        new.findH()  # Find heuristic value
+        new.f = new.g + new.h  # Obtain f value
         return new
 
     def moveNormal(self, student):
-        new = copy.deepcopy(self)
-        new.bus.append(student.flag)
-        new.outside.pop(self.outside.index(student))
+        new = copy.deepcopy(self)  # We need to copy by value because they will have different information
+        new.bus.append(student.flag)  # Introduce the student in the bus
+        new.outside.pop(self.outside.index(student))  # Remove student from outside list
         multiplier = 1
         for place in new.multipliers:
             if student.seat > place:
-                multiplier = multiplier * 2
+                multiplier = multiplier * 2  # Check if there are troublesome with smaller seat
         if student.trouble == "X":
-            new.carry = 0
+            new.carry = 0  # Next student cost will be normal
         else:
-            new.carry = 1
-            new.multipliers.append(student.seat)
-            new.g += self.state_cost
+            new.carry = 1  # Next student cost will be double
+            new.multipliers.append(student.seat)  # Introduce the seat into multipliers
+            new.g += self.state_cost  # This is our way of adding the double cost of the previous student
         new.state_cost = (self.carry + 1) * multiplier
-        new.g += new.state_cost
-        new.findH()
-        new.f = new.g + new.h
+        new.g += new.state_cost  # Update g value
+        new.findH()  # Obtain h value
+        new.f = new.g + new.h  # Calculate f value
         return new
-
-    def isEqual(self, other_state):
-        if self.bus == other_state.bus:
-            return True
-        return False
 
 
 def readFile(input_file):
@@ -128,11 +123,11 @@ def readFile(input_file):
     # Save data from text file into the class and the vector
     for item in list_data:
         data = item.split(': ')
-        my_student = Student(data[0], int(data[1]))
+        my_student = Student(data[0], int(data[1]))  # Create student object using the label and seat
         vector.append(my_student)
 
     f.close()
-    # Vector of students
+    # Return vector of students and the name of the file, used to create the output file names
     return vector, text
 
 
@@ -145,37 +140,36 @@ def main(inpath, heuristic):
 
     # Initial state
     init = State([], std_vec, heuristic, 0, 0)
-    init.findH()
+    init.findH() # Find the heuristic value of the initial state
 
     # A*
-    open_list = PriorityQueue()
+    open_list = PriorityQueue()  # Priority queue gives us the best state when popping items
     open_list.put(init)
 
     # Counter for expanded nodes
     expanded_counter = 0
     while not open_list.empty():
-        current_state = open_list.get()
+        current_state = open_list.get()  # Use priority queue to get the best node
         # Check if selected node is final
-
         if current_state.isFinal():
-            end_time = time()
-            student_string = inpath.replace(".prob", "") + "-" + heuristic + ".output"
-            stat_string = inpath.replace(".prob", "") + "-" + heuristic + ".stat"
+            end_time = time()  # Stop the time to find total time
+            student_string = inpath.replace(".prob", "") + "-" + heuristic + ".output"  # Name of the output file
+            stat_string = inpath.replace(".prob", "") + "-" + heuristic + ".stat"  # Name of the stats file
             st_file = open(student_string, "w")
             stat_file = open(stat_string, "w")
             st_file.write("INPUT: {" + input_text + "}\n")
             st_file.write("OUTPUT: {")
             line = ""
-            for i in current_state.bus:
+            for i in current_state.bus:  # Write the solution of the problem in the output file
                 line = line + i + ", "
             line = line.rstrip(", ")
             st_file.write(line + "}")
             st_file.close()
-            final_cost = current_state.g
-            final_expanded = expanded_counter
-            final_time = end_time - start_time
+            final_cost = current_state.g  # Find cost of the solution
+            final_expanded = expanded_counter  # Find expanded nodes
+            final_time = end_time - start_time  # Compute total time
             solution = current_state.bus
-            stat_file.write("Final cost: " + str(final_cost) + "\n")
+            stat_file.write("Final cost: " + str(final_cost) + "\n")  # Write stats in the file
             stat_file.write("Final time: " + str(final_time) + " seconds\n")
             stat_file.write("Expanded nodes: " + str(final_expanded) + "\n")
             stat_file.write("Solution length: " + str(len(current_state.bus)))
@@ -183,21 +177,25 @@ def main(inpath, heuristic):
             return solution
 
         # If not final, expand node
-        expanded_counter += 1
+        expanded_counter += 1  # Increase expanded nodes count
         children = []
         for student in current_state.outside:
             if student.reduced == "R":
                 for other_student in current_state.outside:
                     if other_student.reduced == "X":
-                        children.append(current_state.moveDisabled(student, other_student))
+                        children.append(current_state.moveDisabled(student, other_student))  # Move reduced mobility
             else:
-                children.append(current_state.moveNormal(student))
+                children.append(current_state.moveNormal(student))  # Move normal student
 
         for child in children:
-            open_list.put(child)
+            open_list.put(child)  # Append the states to the priority queue
+
+    # If we reach this part, it means the problem has no solution, so we write an error message in the output
     error_string = inpath.replace(".prob", "") + "-" + heuristic + ".output"
     error_file = open(error_string, "w")
     error_file.write("No solution was found")
     error_file.close()
+
+
 if __name__ == "__main__":
     main(sys.argv[1], sys.argv[2])
