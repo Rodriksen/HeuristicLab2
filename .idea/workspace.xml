@@ -4,47 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="685e4ebe-719d-478c-8244-d4228a99a60b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/part-2/ASTAR-tests/st6.prob" afterDir="false" />
+    <list default="true" id="685e4ebe-719d-478c-8244-d4228a99a60b" name="Changes" comment="bash works">
+      <change afterPath="$PROJECT_DIR$/part-1/CSP-tests/students2.output" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/part-1/CSP-tests/students3.output" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/part-1/CSP-tests/students4.output" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/part-1/CSP-tests/students5.output" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/part-1/CSP-tests/students6.output" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/part-1/CSP-tests/students6.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/part-1/CSP-calls.sh" beforeDir="false" afterPath="$PROJECT_DIR$/part-1/CSP-calls.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/part-1/CSP-tests/student3s.txt" beforeDir="false" afterPath="$PROJECT_DIR$/part-1/CSP-tests/students3.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/part-1/CSP-tests/students1.output" beforeDir="false" afterPath="$PROJECT_DIR$/part-1/CSP-tests/students1.output" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/part-1/CSP-tests/students7.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/part-1/CSPBus.py" beforeDir="false" afterPath="$PROJECT_DIR$/part-1/CSPBus.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/part-2/ASTAR-calls.sh" beforeDir="false" afterPath="$PROJECT_DIR$/part-2/ASTAR-calls.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/part-2/ASTAR-tests/st1-1.output" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/part-2/ASTAR-tests/st1-1.stat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/part-2/ASTAR-tests/st1-2.output" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/part-2/ASTAR-tests/st1-2.stat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/part-2/ASTAR-tests/st1-3.output" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/part-2/ASTAR-tests/st1-3.stat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/part-2/ASTAR-tests/st2-1.output" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/part-2/ASTAR-tests/st2-1.stat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/part-2/ASTAR-tests/st2-2.output" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/part-2/ASTAR-tests/st2-2.stat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/part-2/ASTAR-tests/st2-2.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/part-2/ASTAR-tests/st2-3.output" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/part-2/ASTAR-tests/st2-3.stat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/part-2/ASTAR-tests/st3-1.output" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/part-2/ASTAR-tests/st3-1.stat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/part-2/ASTAR-tests/st3-2.output" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/part-2/ASTAR-tests/st3-2.stat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/part-2/ASTAR-tests/st3-3.output" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/part-2/ASTAR-tests/st3-3.stat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/part-2/ASTAR-tests/st4-1.output" beforeDir="false" afterPath="$PROJECT_DIR$/part-2/ASTAR-tests/st4-1.output" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/part-2/ASTAR-tests/st4-1.stat" beforeDir="false" afterPath="$PROJECT_DIR$/part-2/ASTAR-tests/st4-1.stat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/part-2/ASTAR-tests/st4-2.output" beforeDir="false" afterPath="$PROJECT_DIR$/part-2/ASTAR-tests/st4-2.output" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/part-2/ASTAR-tests/st4-2.stat" beforeDir="false" afterPath="$PROJECT_DIR$/part-2/ASTAR-tests/st4-2.stat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/part-2/ASTAR-tests/st4-3.output" beforeDir="false" afterPath="$PROJECT_DIR$/part-2/ASTAR-tests/st4-3.output" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/part-2/ASTAR-tests/st4-3.stat" beforeDir="false" afterPath="$PROJECT_DIR$/part-2/ASTAR-tests/st4-3.stat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/part-2/ASTAR-tests/st5-1.output" beforeDir="false" afterPath="$PROJECT_DIR$/part-2/ASTAR-tests/st5-1.output" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/part-2/ASTAR-tests/st5-1.stat" beforeDir="false" afterPath="$PROJECT_DIR$/part-2/ASTAR-tests/st5-1.stat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/part-2/ASTAR-tests/st5-2.output" beforeDir="false" afterPath="$PROJECT_DIR$/part-2/ASTAR-tests/st5-2.output" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/part-2/ASTAR-tests/st5-2.stat" beforeDir="false" afterPath="$PROJECT_DIR$/part-2/ASTAR-tests/st5-2.stat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/part-2/ASTAR-tests/st5-3.output" beforeDir="false" afterPath="$PROJECT_DIR$/part-2/ASTAR-tests/st5-3.output" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/part-2/ASTAR-tests/st5-3.stat" beforeDir="false" afterPath="$PROJECT_DIR$/part-2/ASTAR-tests/st5-3.stat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/part-2/ASTAR-tests/st5.prob" beforeDir="false" afterPath="$PROJECT_DIR$/part-2/ASTAR-tests/st5.prob" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/part-2/ASTARBusQueue.py" beforeDir="false" afterPath="$PROJECT_DIR$/part-2/ASTARBusQueue.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,11 +32,15 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="2IuFuX1y82EqrP29eOBPIe9GajW" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/part-2/ASTARBusQueue.py" />
@@ -142,7 +123,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671032315099</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="bash works">
+      <created>1671105684746</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1671105684746</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -170,9 +158,11 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="funciona todo, vamos a hacer priority queue" />
     <MESSAGE value="part 2 finished XD &lt;3" />
     <MESSAGE value="part 2 with files correct" />
-    <option name="LAST_COMMIT_MESSAGE" value="part 2 with files correct" />
+    <MESSAGE value="bash works" />
+    <option name="LAST_COMMIT_MESSAGE" value="bash works" />
   </component>
 </project>

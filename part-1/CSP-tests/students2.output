@@ -1,0 +1,11 @@
+Number of solutions: 294912
+Printing solution: 63595
+{'6XR': 20, '7XR': 17, '2XR': 3, '3XR': 2, '4XR': 13, '5XR': 16, '1XX': 9, '8XX': 25}
+Printing solution: 63977
+{'6XR': 20, '7XR': 17, '2XR': 3, '3XR': 1, '4XR': 15, '5XR': 14, '1XX': 9, '8XX': 27}
+Printing solution: 291358
+{'6XR': 17, '7XR': 19, '2XR': 1, '3XR': 3, '4XR': 15, '5XR': 14, '1XX': 5, '8XX': 22}
+Printing solution: 262651
+{'6XR': 17, '7XR': 19, '2XR': 16, '3XR': 13, '4XR': 1, '5XR': 3, '1XX': 5, '8XX': 25}
+Printing solution: 69215
+{'6XR': 20, '7XR': 17, '2XR': 1, '3XR': 4, '4XR': 16, '5XR': 14, '1XX': 5, '8XX': 21}

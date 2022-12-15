@@ -129,13 +129,10 @@ def main(inpath):
     student_vector = readFile(inpath)
     # Students domain
     setDomain(student_vector)
-
     problem = Problem()
-
     # Vectors of reduced and troublesome students to have simpler constraints
     reduced = []
     troublesome = []
-    print("Add variables")
     # Add variables of the problem with corresponding domain
     for st in student_vector:
         problem.addVariable(st.label, st.values)
@@ -143,11 +140,9 @@ def main(inpath):
             reduced.append(st)
         if st.trouble == "C":
             troublesome.append(st)
-    print("Add constraints")
     # Add constraints
     # One student per seat
     problem.addConstraint(AllDifferentConstraint())
-
     # Seat next to reduced student empty
     for red in reduced:
         for st in student_vector:
