@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="202875aa-f4ac-44fb-a26b-5838508a6eeb" name="Changes" comment="TESTS PERFORMED 1-2">
-      <change afterPath="$PROJECT_DIR$/HeuristicLab2/part-2/ASTAR-tests/st3.prob" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HeuristicLab2/part-2/ASTAR-tests/st4.prob" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HeuristicLab2/part-2/ASTAR-tests/st5.prob" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HeuristicLab2/part-2/ASTAR-tests/st2-2.stat" beforeDir="false" afterPath="$PROJECT_DIR$/HeuristicLab2/part-2/ASTAR-tests/st2-2.stat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HeuristicLab2/part-2/ASTAR-tests/st2.prob" beforeDir="false" afterPath="$PROJECT_DIR$/HeuristicLab2/part-2/ASTAR-tests/st2.prob" afterDir="false" />
+    <list default="true" id="202875aa-f4ac-44fb-a26b-5838508a6eeb" name="Changes" comment="all directories">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +22,11 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File" value="PLAIN_TEXT" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/HeuristicLab2/part-2/ASTARBusQueue.py" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\rodri\Documents\GitHub\HeuristicLab2" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="part2" type="PythonConfigurationType" factoryName="Python">
@@ -87,7 +88,21 @@
       <option name="project" value="LOCAL" />
       <updated>1671037684588</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="TESTS PERFORMED 1-2">
+      <created>1671038875083</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1671038875083</updated>
+    </task>
+    <task id="LOCAL-00006" summary="all directories">
+      <created>1671090918016</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1671090918016</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -119,6 +134,7 @@
     <MESSAGE value="part 2 finished XD &lt;3" />
     <MESSAGE value="part 2 with files correct" />
     <MESSAGE value="TESTS PERFORMED 1-2" />
-    <option name="LAST_COMMIT_MESSAGE" value="TESTS PERFORMED 1-2" />
+    <MESSAGE value="all directories" />
+    <option name="LAST_COMMIT_MESSAGE" value="all directories" />
   </component>
 </project>
